@@ -1,0 +1,48 @@
+{
+    "name": "prestashopheaven/build-package-index",
+    "description": "The index of the PrestaHaven package collection: every package of libraries/mono-*/packages with its public classes and methods, a ranked search (ps-module find) and the one-line catalog for CONTEXT.md.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George van Engers",
+            "email": "vanengers@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-tokenizer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\PackageIndex\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\PackageIndex\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "prestashopheaven": {
+            "kind": "build",
+            "use-when": "Before writing code for a module or package: search whether one of our packages already does it (ps-module find \"<need>\"), or generate the package index and the one-line catalog for CONTEXT.md.",
+            "keywords": [
+                "package index",
+                "search",
+                "find",
+                "catalog",
+                "reuse",
+                "public api",
+                "docblock",
+                "tokenizer"
+            ]
+        }
+    },
+    "bin": [
+        "bin/package-index.php"
+    ]
+}

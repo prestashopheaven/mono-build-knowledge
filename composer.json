@@ -1,0 +1,127 @@
+{
+    "name": "prestashopheaven/mono-build-knowledge",
+    "description": "The knowledge of the PrestaHaven factory: the package index, the PrestaShop index per release and the external package search with its compatibility check, so a module reuses what exists before new code is written.",
+    "version": "1.0.0",
+    "type": "project",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/build-external": "1.0.0",
+                    "prestashopheaven/build-package-index": "1.0.0",
+                    "prestashopheaven/build-prestashop-index": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-build-standards/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/build-coding-standard": "1.0.0",
+                    "prestashopheaven/build-typescript": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-build-testing/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/build-testing-js": "0.1.0",
+                    "prestashopheaven/build-testing-php": "0.1.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-build-tools/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/build-tools": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-runtime-backoffice/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/runtime-admin-assets": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-runtime-core/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/runtime-cqrs": "1.0.0",
+                    "prestashopheaven/runtime-kit": "1.0.0",
+                    "prestashopheaven/runtime-multistore": "1.0.0",
+                    "prestashopheaven/runtime-shared-kernel": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/mono-runtime-support/packages/*",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "prestashopheaven/runtime-clock": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../libraries/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "prestashopheaven/build-external": "*",
+        "prestashopheaven/build-package-index": "*",
+        "prestashopheaven/build-prestashop-index": "*"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+        "phpcompatibility/php-compatibility": "^10.0@alpha",
+        "phpunit/phpunit": "^10.5",
+        "prestashopheaven/build-tools": "^1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "php": "8.1.0"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "prestashopheaven": {
+            "monorepo": {
+                "kind": "build",
+                "category": "knowledge"
+            }
+        }
+    },
+    "scripts": {
+        "check": "ps-module mono check"
+    }
+}
