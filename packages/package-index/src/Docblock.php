@@ -47,7 +47,7 @@ final class Docblock
             $summary = $m[1];
         }
         if (mb_strlen($summary) > self::MAX_SUMMARY) {
-            $summary = rtrim(mb_substr($summary, 0, self::MAX_SUMMARY - 1)) . '…';
+            $summary = rtrim(mb_substr($summary, 0, self::MAX_SUMMARY - 1), " \n\r\t\v\0") . '…';
         }
 
         return $summary;
@@ -60,7 +60,7 @@ final class Docblock
     {
         foreach (self::lines($doc) as $line) {
             if (preg_match('/^@deprecated\b\s*(.*)$/', $line, $m)) {
-                return trim($m[1]);
+                return trim($m[1], " \n\r\t\v\0");
             }
         }
 
@@ -77,7 +77,7 @@ final class Docblock
         $doc = (string) preg_replace(['#^\s*/\*\*#', '#\*/\s*$#'], '', $doc);
         $lines = [];
         foreach (preg_split('/\R/', $doc) ?: [] as $line) {
-            $lines[] = trim((string) preg_replace('/^\s*\*?/', '', $line));
+            $lines[] = trim((string) preg_replace('/^\s*\*?/', '', $line), " \n\r\t\v\0");
         }
 
         return $lines;

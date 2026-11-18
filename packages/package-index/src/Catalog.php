@@ -57,7 +57,7 @@ final class Catalog
     public static function line(array $composer, string $version, string $monorepo): string
     {
         $meta = is_array($composer['extra']['prestashopheaven'] ?? null) ? $composer['extra']['prestashopheaven'] : [];
-        $useWhen = trim((string) preg_replace('/\s+/', ' ', (string) ($meta['use-when'] ?? $composer['description'] ?? '')));
+        $useWhen = trim((string) preg_replace('/\s+/', ' ', (string) ($meta['use-when'] ?? $composer['description'] ?? '')), " \n\r\t\v\0");
 
         return '- `' . (string) $composer['name'] . "` $version (" . (string) ($meta['kind'] ?? '?') . ", $monorepo): " . str_replace('|', '/', $useWhen);
     }

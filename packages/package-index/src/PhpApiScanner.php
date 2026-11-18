@@ -294,8 +294,8 @@ final class PhpApiScanner
         for (; $i < $this->count && $this->tokens[$i] !== '{' && $this->tokens[$i] !== ';'; ++$i) {
             $return .= is_array($this->tokens[$i]) ? $this->tokens[$i][1] : $this->tokens[$i];
         }
-        $return = trim((string) preg_replace('/\s+/', ' ', $return));
-        $signature = '(' . $params . ')' . ($return !== '' ? ' ' . ltrim($return) : '');
+        $return = trim((string) preg_replace('/\s+/', ' ', $return), " \n\r\t\v\0");
+        $signature = '(' . $params . ')' . ($return !== '' ? ' ' . ltrim($return, " \n\r\t\v\0") : '');
         $signature = (string) preg_replace('/\s+:/', ':', $signature);
         if ($i >= $this->count || $this->tokens[$i] === ';') {
             return [$signature, min($i, $this->count - 1), null];
@@ -323,7 +323,7 @@ final class PhpApiScanner
             }
             $out .= is_array($t) ? ($t[0] === T_WHITESPACE ? ' ' : $t[1]) : $t;
         }
-        $out = trim((string) preg_replace('/\s+/', ' ', $out));
+        $out = trim((string) preg_replace('/\s+/', ' ', $out), " \n\r\t\v\0");
 
         return (string) preg_replace(['/\(\s+/', '/\s+\)/', '/\[\s+/', '/\s+\]/', '/\s+,/'], ['(', ')', '[', ']', ','], $out);
     }

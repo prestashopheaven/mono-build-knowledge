@@ -62,7 +62,7 @@ final class Cli
 
                     return 0;
                 case 'find':
-                    if (trim($rest[1] ?? '') === '') {
+                    if (trim($rest[1] ?? '', " \n\r\t\v\0") === '') {
                         throw new \InvalidArgumentException(self::USAGE);
                     }
                     $index = isset($options['index']) ? PackageIndex::load($options['index']) : PackageIndex::workspace(self::requireWorkspace($workspace) . '/libraries');

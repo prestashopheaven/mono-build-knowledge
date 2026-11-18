@@ -47,7 +47,7 @@ final class Cli
         [$options, $rest] = Workspace::options($args);
         try {
             $command = $rest[0] ?? '';
-            $subject = trim($rest[1] ?? '');
+            $subject = trim($rest[1] ?? '', " \n\r\t\v\0");
             if (!in_array($command, ['find', 'check'], true) || $subject === '') {
                 throw new \InvalidArgumentException(self::USAGE);
             }

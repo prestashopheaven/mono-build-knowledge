@@ -91,7 +91,7 @@ final class CompatibilityCheck
     public function check(string $spec): array
     {
         $this->risks = [];
-        [$name, $constraint] = array_pad(explode(':', trim($spec), 2), 2, null);
+        [$name, $constraint] = array_pad(explode(':', trim($spec, " \n\r\t\v\0"), 2), 2, null);
         $name = strtolower((string) $name);
         $releases = array_map(fn (int $n): string => $this->prestashop->versions()[$n], $this->prestashop->positionsInRange($this->psMin, $this->psMax));
         $root = Versions::pick($this->packagist->versions($name), $constraint);
