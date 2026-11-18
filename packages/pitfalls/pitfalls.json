@@ -18,5 +18,17 @@
     {
         "area": "sales shop webservice publish",
         "text": "**Sales shop product create gives HTTP 500:** the shop's `override/classes/Product.php` (line 82) reads `php_self`, which the webservice has not. The product is created anyway: fill it with `ps-module publish shop --update`, check with a dry run first so there are no duplicates."
+    },
+    {
+        "area": "back office css bootstrap grid",
+        "text": "**Bootstrap utilities in core markup are !important:** classes like `d-flex` on PrestaShop's own back-office markup use `!important`, so a module's override needs `!important` too, scoped to its grid id (`#<grid>_grid ...`). Found in heavencartjourney 1.4.1."
+    },
+    {
+        "area": "back office grid translation selector",
+        "text": "**Grid row-link classes are translated:** PrestaShop builds `grid-<name>-row-link` from the translated action name, so a selector on it works only in English. Select on the href or on `#<grid>_grid` instead, and test the back office once in a second language. Found in heavencartjourney 1.4.0."
+    },
+    {
+        "area": "cloudflare publish demo docs",
+        "text": "**Cloudflare cache purge fails with 401:** since 2026-11-17 the purge after `publish docs` / `publish demo` is refused; the Cloudflare API token in the workspace .env is wrong or expired. The publish itself succeeds; purge by hand until the token is replaced."
     }
 ]

@@ -2,6 +2,10 @@
 
 The version is the one of the monorepo `mono-build-knowledge`.
 
+## 1.1.1
+
+- Three curated pitfalls from the Cart Journey 1.4.1 pilot.
+
 ## 1.1.0
 
 - First version: `Collector` (module notes, recipes, curated list), `Search` (word ranking, area counts double),

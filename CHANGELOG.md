@@ -2,6 +2,11 @@
 
 All packages of this monorepo share one version. Per package details: its own `CHANGELOG.md`.
 
+## 1.1.1
+
+- `build-pitfalls`: three curated pitfalls from the Cart Journey 1.4.1 pilot (Bootstrap `!important`, translated grid
+  row-link classes, Cloudflare purge 401).
+
 ## 1.1.0
 
 - New package `build-pitfalls`: the pitfalls index of the Module-Factory (`ps-module find --pitfalls "<area>"`),
