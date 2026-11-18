@@ -1,0 +1,22 @@
+[
+    {
+        "area": "php tooling",
+        "text": "**PHPCompatibility and trim():** since its PHP 8.6 rule, every one-argument `trim()`, `ltrim()` or `rtrim()` fails `composer check` (the default characters gain `\\f`). Pass `\" \\n\\r\\t\\v\\0\"` explicitly. Found 2026-11-18 in mono-build-tools (189 calls) and mono-build-standards; modules hit it at their next `composer update`."
+    },
+    {
+        "area": "shell windows git bash",
+        "text": "**Git Bash heredocs lose backslashes:** code with `\\\\` or `\\s` written through a heredoc (also python or php code inside it) arrives broken. Write such code with the Write or Edit tool."
+    },
+    {
+        "area": "release ci check",
+        "text": "**A grep in an && chain hides a failed check:** `composer check | grep -E \"failed|OK\" && git commit` commits on failure, because grep finds \"failed\". Run the check alone and commit only on exit code 0."
+    },
+    {
+        "area": "demo server deploy cache crawler",
+        "text": "**Demo deploys and crawlers:** every deploy clears the PrestaShop cache; a crawler on faceted-search pages (seen from Meta's IP range, 2026-11-17) then keeps the 8 PHP workers busy rebuilding it and the demo answers 504 for minutes. A VPS snapshot at the same time slows it further and the deploy check rolls back."
+    },
+    {
+        "area": "sales shop webservice publish",
+        "text": "**Sales shop product create gives HTTP 500:** the shop's `override/classes/Product.php` (line 82) reads `php_self`, which the webservice has not. The product is created anyway: fill it with `ps-module publish shop --update`, check with a dry run first so there are no duplicates."
+    }
+]

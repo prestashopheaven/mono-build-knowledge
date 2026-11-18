@@ -1,0 +1,45 @@
+{
+    "name": "prestashopheaven/build-pitfalls",
+    "description": "The pitfalls index of the Module-Factory: every known pitfall from the Notes of the module repos (CONTEXT.md), the feature recipes and a curated list, searchable before a module is designed or built.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George van Engers",
+            "email": "vanengers@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\Pitfalls\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\Pitfalls\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "prestashopheaven": {
+            "kind": "build",
+            "use-when": "Before designing or building a feature: search what went wrong before in the same area (ps-module find --pitfalls  <area> ), so a lesson from one module reaches the next.",
+            "keywords": [
+                "pitfalls",
+                "lessons",
+                "known issues",
+                "search",
+                "retro",
+                "factory"
+            ]
+        }
+    },
+    "bin": [
+        "bin/pitfalls.php"
+    ]
+}
