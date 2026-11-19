@@ -2,6 +2,11 @@
 
 All packages of this monorepo share one version. Per package details: its own `CHANGELOG.md`.
 
+## 1.1.2
+
+- `build-pitfalls`: two pitfalls from the Bing IndexNow 1.0.0 run (Git Bash path conversion for `ps-module layout`,
+  the PS 8 product route without {id} that crashes before displayHeader).
+
 ## 1.1.1
 
 - `build-pitfalls`: three curated pitfalls from the Cart Journey 1.4.1 pilot (Bootstrap `!important`, translated grid

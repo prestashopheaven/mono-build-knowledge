@@ -30,5 +30,13 @@
     {
         "area": "cloudflare publish demo docs",
         "text": "**Cloudflare cache purge fails with 401:** since 2026-11-17 the purge after `publish docs` / `publish demo` is refused; the Cloudflare API token in the workspace .env is wrong or expired. The publish itself succeeds; purge by hand until the token is replaced."
+    },
+    {
+        "area": "shell windows git bash layout path",
+        "text": "**Git Bash rewrites `/modules/...` arguments into Windows paths:** `ps-module layout 9.2.1 /modules/...` gets `C:/Program Files/Git/modules/...` and checks the wrong page. Prefix the command with `MSYS_NO_PATHCONV=1` (also for `docker exec ... /var/www/...`). Found in heavenbingindexnow 1.0.0."
+    },
+    {
+        "area": "prestashop 8 front office route 404 hook order",
+        "text": "**PS 8 product route without {id} crashes before displayHeader:** when a shop sets a product route without {id} (config or an SEO module), ProductController answers an unknown rewrite with 404 in init() and then HTTP 500 in the breadcrumb (Link::getProductLink of no product) before displayHeader runs. A module that answers such URLs (redirect, 410) must do it in actionFrontControllerSetMedia (after init, before the page is built). Found in heavenbingindexnow 1.0.0."
     }
 ]

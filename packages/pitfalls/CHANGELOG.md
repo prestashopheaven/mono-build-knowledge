@@ -2,6 +2,10 @@
 
 The version is the one of the monorepo `mono-build-knowledge`.
 
+## 1.1.2
+
+- Two pitfalls from the Bing IndexNow 1.0.0 run.
+
 ## 1.1.1
 
 - Three curated pitfalls from the Cart Journey 1.4.1 pilot.
